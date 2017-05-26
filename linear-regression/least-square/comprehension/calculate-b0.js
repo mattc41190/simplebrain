@@ -1,7 +1,5 @@
 function calculateB0(xAverage, yAverage, b1) {
-    let eqRightSide = b1 * xAverage;
-    let b0 = yAverage - eqRightSide;
-    return b0;
+    return b0 = yAverage - (b1 * xAverage);
 }
 
 module.exports = calculateB0;

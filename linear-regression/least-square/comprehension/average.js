@@ -1,14 +1,10 @@
-// use reduce!
-
 function average(observations, axis) {
-  let total = 0;
-  let avg;
-  for (var i = 0; i < observations.length; i++) {
-    total += observations[i][axis];
-  }
-
-  avg = total / observations.length;
-  return avg;
+  const total = observations.reduce((val, observation) => {
+    if (observation[axis]) {
+      return val + observation[axis];
+    }
+  }, 0);
+  return total / observations.length;
 }
 
 module.exports = average;
