@@ -1,5 +1,5 @@
-function train(data) {
-  let observations = require(data);
+function train(observations) {
+
   const xMean = observations.reduce((val, observation) => { return val + observation['x'] }, 0) / observations.length;
   const yMean = observations.reduce((val, observation) => { return val + observation['y'] }, 0) / observations.length;
 
@@ -30,8 +30,6 @@ function predict(observation, b0, b1) {
 
 function grade(model, data) {
   let allGrades = 0;
-
-  data = require(data);
   data.forEach((observation) => {
     let prediction = Math.ceil(predict(observation['x'], model.b0, model.b1));
     allGrades += Math.abs(prediction -  observation.y);
