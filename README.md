@@ -39,3 +39,8 @@ How Do I Do It?
 All methods are resource wasting and verbose, but simple.
 
 1. linear-regression
+
+Public Methods :
+
+1. `train([{x: 1, y: 1}, ...])` => Returns a model (If you are looking for b0 and b1 this is where to find it `console.log(model)`)
+3. `grade(model, [{x: 1, y: 1}, {x: 1, y: 2}])` => Returns a grade / number
