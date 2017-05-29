@@ -1,12 +1,13 @@
 {
   "name": "simplebrain",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple machine learning library - ALPHA",
   "url" : "https://github.com/mattc41190/simplebrain",
   "homepage": "https://github.com/mattc41190/simplebrain",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release:patch":  "npm version patch && npm publish"
   },
   "keywords": ["linearRegression", "linear-regression", "machine learning", "ML"],
   "author": "",
