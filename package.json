@@ -1,8 +1,10 @@
 {
   "name": "simplebrain",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A simple machine learning library - ALPHA",
-  "url" : "https://github.com/mattc41190/simplebrain",
+  "bugs" : {
+      "url" : "https://github.com/mattc41190/simplebrain"
+  },
   "homepage": "https://github.com/mattc41190/simplebrain",
   "main": "index.js",
   "scripts": {
