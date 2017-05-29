@@ -1,7 +1,9 @@
 # simplebrain
 A super simple way to think about machine learning
 
-```javascriot
+### Library is in ALPHA
+
+```javascript
 const lr = require('simplebrain').linearRegression;
 
 const trained_model = lr.train([
