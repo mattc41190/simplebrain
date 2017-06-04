@@ -1,6 +1,6 @@
 const assert = require('assert');
 const path = require('path');
-const linearRegression = require('../api/index.js');
+const linearRegression = require('../api/index.js').linearRegression;
 const observations = require('./data/train_observations.json');
 
 function doesModelProduce() {
