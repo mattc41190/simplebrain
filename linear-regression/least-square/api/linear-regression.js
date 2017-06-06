@@ -90,28 +90,10 @@ function findRSquared(b0, b1, observations) {
 
   const rSquared = yHatMinusYMeanSquaredTotal/yMinusYMeanSquaredTotal;
 
-  console.log(rSquared);
+return rSquared
 }
 
-let actualObservations = [
-  {"x" :  1, "y" : 2},
-  {"x" :  2, "y" : 3},
-  {"x" :  3, "y" : 5},
-  {"x" :  4, "y" : 4},
-  {"x" :  5, "y" : 4},
-  {"x" :  1, "y" : 2},
-  {"x" :  2, "y" : 3},
-  {"x" :  3, "y" : 4},
-  {"x" :  4, "y" : 4},
-  {"x" :  5, "y" : 5},
-  {"x" :  1, "y" : 2},
-  {"x" :  2, "y" : 3},
-  {"x" :  3, "y" : 4},
-  {"x" :  4, "y" : 4},
-  {"x" :  5, "y" : 5}
-]
-
-findRSquared(2.2, .6, actualObservations);
+// findRSquared(2.2, .6, actualObservations);
 
 module.exports = {
   train,
