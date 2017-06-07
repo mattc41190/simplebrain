@@ -45,22 +45,6 @@ function grade(model, data) {
   return grade = allGrades / data.length
 }
 
-function findStdDev() {
-  var data = [0, 2, 4, 5, 7];
-  var n = data.length;
-  var average = data.reduce((sum, current) => {
-    return sum += current
-  }, 0) / n;
-  console.log(average);
-  var sum = data.reduce((_sum, current) => {
-    // console.log((current - average) * (current - average));
-    return _sum += (current - average) * (current - average)
-  }, 0)
-  console.log(sum);
-  var stdDev = Math.sqrt(sum / (n - 1));
-  console.log(stdDev);
-}
-
 function findRSquared(b0, b1, observations) {
   let { xMean, yMean } = axisAverage(observations);
   observations = observations.map((observation) => {
@@ -93,12 +77,11 @@ function findRSquared(b0, b1, observations) {
 return rSquared
 }
 
-// findRSquared(2.2, .6, actualObservations);
-
 module.exports = {
   train,
   predict,
   grade,
   createTable,
-  axisAverage
+  axisAverage,
+  findRSquared
 }
