@@ -9,6 +9,4 @@ function findStdDev(nums) {
   return stdDev = Math.sqrt(sum / (numsLength - 1));
 }
 
-let data = [1,2,3,4,5]
-
-findStdDev(data);
+module.exports = {findStdDev};

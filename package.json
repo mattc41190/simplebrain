@@ -14,7 +14,8 @@
   "scripts": {
     "test": "npm run clean && nyc --reporter=html mocha --reporter=spec",
     "release:patch": "npm version patch && npm publish",
-    "clean": "rm -rf coverage && rm -rf .nyc_output"
+    "clean": "rm -rf coverage && rm -rf .nyc_output",
+    "doc": "node tools/doc.js"
   },
   "keywords": [
     "linearRegression",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "chai": "^4.0.2",
     "istanbul": "^0.4.5",
+    "jsdoc-to-markdown": "^3.0.0",
     "mocha": "^3.4.2",
     "nyc": "^11.0.2"
   }
