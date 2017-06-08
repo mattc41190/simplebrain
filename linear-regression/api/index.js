@@ -1,4 +1,3 @@
-const linearRegression = require('./linear-regression.js');
-const table = require('./table.js');
+const Formula = require('./linear-regression-formula.js');
 
-module.exports = {linearRegression, table};
+module.exports = {Formula};

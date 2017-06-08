@@ -1,3 +1,3 @@
-const linearRegression = require('./linear-regression/api/index.js').linearRegression;
+const LinearRegressionFormula = require('./linear-regression/api/index.js').Formula;
 
-module.exports = {linearRegression};
+module.exports = {LinearRegressionFormula};
