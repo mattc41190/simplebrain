@@ -1,6 +1,13 @@
 var console = require('better-console');
 
 
+var Formula = function(baseObservations) {
+  this.observations = baseObservations;
+  this.averages;
+  this.b0;
+  this.b1;
+};
+
 /** train uses a set of observations to create b0 and b1
  * @param {Array} observations - Array of objects containing numerical axises (Ex: [{x: 1, y: 2}])
  * @returns {Object} - Object containg b0 and b1 values
@@ -20,10 +27,15 @@ function train(observations) {
  * @param {Array} observations - Array of objects containing numerical axises (Ex: [{x: 1, y: 2}])
  * @returns {Array} - Observations with all data needed to create b0 and b1
  */
-function createTable(xMean, yMean, observations) {
-  return observations = observations.map((observation) => {
-      observation["xMeanDist"] = observation.x - xMean;
-      observation["yMeanDist"] = observation.y - yMean;
+Formula.prototype.createTable = function () {
+  this.observations.map((observation) => {
+      observation["x"] = observation.x;
+      observation["y"] = observation.y;
+      return observation;
+    })
+    .map((observation) => {
+      observation["xMeanDist"] = observation.x - this.xMean;
+      observation["yMeanDist"] = observation.y - this.yMean;
       return observation;
     })
     .map((observation) => {
@@ -31,23 +43,31 @@ function createTable(xMean, yMean, observations) {
       observation['meanProducts'] = observation['xMeanDist'] * observation['yMeanDist'];
       return observation;
     })
-}
 
+    return this;
+}
 /** axisAverage uses a set of observations to create means for independent and dependent variables
  * @param {Array} observations - Array of objects containing numerical axises (Ex: [{x: 1, y: 2}])
  * @returns {Object} - Object containing x axis mean and y axis mean
  */
-function axisAverage(observations) {
-  const xMean = observations.reduce((val, observation) => {
+Formula.prototype.axisAverage = function() {
+   this.xMean = this.observations.reduce((val, observation) => {
     return val + observation['x']
-  }, 0) / observations.length;
-  const yMean = observations.reduce((val, observation) => {
+  }, 0) / this.observations.length;
+  this.yMean = this.observations.reduce((val, observation) => {
     return val + observation['y']
-  }, 0) / observations.length;
+  }, 0) / this.observations.length;
 
-  return { xMean, yMean }
+  return this;
 }
 
+Formula.prototype.visualize = function() {
+  if (this.xMean && this.yMean) {
+    console.log(`xMean: ${this.xMean} yMean:${this.yMean}`);
+  }
+  console.table(this.observations);
+  return this;
+}
 
 /** predict uses a single observation and linear regression data to predict a y coordinate
  * @param {Number} observation - An independent coordinate (commonly known as "x")
@@ -55,8 +75,8 @@ function axisAverage(observations) {
  * @param {Number} b1 - The known slope of a regression line
  * @returns {Number} - A numerical prediction for the y coordinate that accompanies the passed in observation
  */
-function predict(observation, b0, b1) {
-  return b0 + (b1 * observation)
+Formula.prototype.predict = function(observation) {
+  return this.b0 + (this.b1 * observation)
 }
 
 function grade(model, data) {
@@ -105,14 +125,14 @@ function findRSquared(b0, b1, observations) {
   return rSquared
 }
 
-module.exports = {
-  train,
-  predict,
-  grade,
-  createTable,
-  axisAverage,
-  findRSquared
-}
+// module.exports = {
+//   train,
+//   predict,
+//   grade,
+//   createTable,
+//   axisAverage,
+//   findRSquared
+// }
 
 let data = [
   {"x" :  1, "y" : 2},
@@ -121,8 +141,16 @@ let data = [
   {"x" :  4, "y" : 4},
   {"x" :  5, "y" : 5}
 ]
+//
+//
+// let _table = createTable(3,4, data);
+//
+// console.table(_table);
 
+let lr = new Formula(data)
+  .axisAverage()
+  .visualize()
+  .createTable()
+  .visualize()
 
-let _table = createTable(3,4, data);
-
-console.table(_table);
+// console.log(lr);
