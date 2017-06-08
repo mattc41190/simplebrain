@@ -26,6 +26,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "better-console": "^1.0.0",
+    "cli-table": "^0.3.1",
     "html2jade": "^0.8.6",
     "tableify": "^1.0.0"
   },

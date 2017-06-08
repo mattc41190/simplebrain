@@ -1,3 +1,6 @@
+var console = require('better-console');
+
+
 /** train uses a set of observations to create b0 and b1
  * @param {Array} observations - Array of objects containing numerical axises (Ex: [{x: 1, y: 2}])
  * @returns {Object} - Object containg b0 and b1 values
@@ -46,7 +49,7 @@ function axisAverage(observations) {
 }
 
 
-/** predict uses an obersation and linear regression data to predict a y coordinate
+/** predict uses a single observation and linear regression data to predict a y coordinate
  * @param {Number} observation - An independent coordinate (commonly known as "x")
  * @param {Number} b0 - The known y intercept of a regression line
  * @param {Number} b1 - The known slope of a regression line
@@ -110,3 +113,16 @@ module.exports = {
   axisAverage,
   findRSquared
 }
+
+let data = [
+  {"x" :  1, "y" : 2},
+  {"x" :  2, "y" : 4},
+  {"x" :  3, "y" : 5},
+  {"x" :  4, "y" : 4},
+  {"x" :  5, "y" : 5}
+]
+
+
+let _table = createTable(3,4, data);
+
+console.table(_table);

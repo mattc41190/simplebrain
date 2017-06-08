@@ -45,11 +45,15 @@ describe('Linear Regression', function() {
         });
     });
 
-    describe('#rSquared', function() {
-        it('should produce the rSquare grade for a regression line', function() {
-            const rSquared = linearRegression.findRSquared(2.2, .6, observations);
-            expect(rSquared).to.equal(.6);
-        });
-    });
+});
 
+describe('R Squared', function() {
+
+	describe('#findRSquared', function() {
+		it('should produce the rSquare grade for a regression line', function() {
+			const rSquared = linearRegression.findRSquared(2.2, .6, observations);
+			expect(rSquared).to.equal(.6);
+		});
+	});
+	
 });
